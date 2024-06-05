@@ -13,5 +13,6 @@ namespace Domain.Entities
         public int Capacity { get; set; }
         public TypesOfMicroclimate TypeOfMicroclimate { get; set; }
         public TypesOfProduct TypeOfProduct { get; set; }
+        public ICollection<Shelf> Shelves { get; set; }
     }
 }

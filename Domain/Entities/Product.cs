@@ -13,8 +13,10 @@ namespace Domain.Entities
         public required string Name { get; set; }
         public decimal Value { get; set; }
         public int Weight { get; set; }
-        public DateOnly ExpireDate { get; set; }
+        public DateTime ExpireDate { get; set; }
         public TypesOfMicroclimate TypeOfDetention { get; set; }
         public TypesOfProduct TypeOfProduct { get; set; }
+        public int ShelfId { get; set; }
+        public Shelf Shelf { get; set; }
     }
 }

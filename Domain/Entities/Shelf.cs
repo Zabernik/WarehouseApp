@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class Rack
+    public class Shelf
     {
         public int Id { get; set; }
-        public int capacity { get; set; }
-        public IList<Product> Products { get; set; } = new List<Product>();
+        public int Capacity { get; set; }
+        public Warehouse Warehouse { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }
