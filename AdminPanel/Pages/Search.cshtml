@@ -1,0 +1,19 @@
+﻿@page
+@model AdminPanel.Pages.SearchModel
+
+<h2>Wyszukiwanie Produktów</h2>
+
+<form method="post">
+    <label for="productName">Nazwa Produktu:</label>
+    <input type="text" id="productName" name="productName" />
+    <button type="submit">Szukaj</button>
+</form>
+
+@if (Model.ProductLocation != null)
+{
+    <div>
+        <h3>Wynik:</h3>
+        <p>Magazyn: @Model.ProductLocation.WarehouseId</p>
+        <p>Regał: @Model.ProductLocation.ShelfId</p>
+    </div>
+}

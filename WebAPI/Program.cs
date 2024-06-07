@@ -79,6 +79,8 @@ builder.Services.AddGrpc();
 
 var app = builder.Build();
 
+app.MapGrpcService<ProductLocatorService>();
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

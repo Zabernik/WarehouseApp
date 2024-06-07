@@ -10,6 +10,7 @@ namespace Domain.Entities
     {
         public int Id { get; set; }
         public int Capacity { get; set; }
+        public int WarehouseId { get; set; }
         public Warehouse Warehouse { get; set; }
         public ICollection<Product> Products { get; set; }
     }
