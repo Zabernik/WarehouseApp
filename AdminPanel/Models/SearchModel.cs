@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Threading.Tasks;
 using WebAPI.GrpcServices;
 
-namespace AdminPanel.Pages
+namespace AdminPanel.Models
 {
     public class SearchModel : PageModel
     {

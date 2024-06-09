@@ -1,0 +1,13 @@
+﻿@page "{id:int}"
+@model AdminPanel.Pages.DeleteWarehouseModel
+
+<h2>Usuń Magazyn</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Warehouse.Id" />
+
+    <p>Czy na pewno chcesz usunąć magazyn o pojemności: <strong>@Model.Warehouse.Capacity</strong>?</p>
+
+    <button type="submit">Usuń</button>
+    <a asp-page="Warehouses">Anuluj</a>
+</form>

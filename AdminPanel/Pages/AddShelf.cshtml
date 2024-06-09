@@ -1,0 +1,19 @@
+﻿@page
+@model AdminPanel.Pages.AddShelfModel
+
+<h2>Dodaj Regał</h2>
+
+<form method="post">
+    <label for="capacity">Pojemność:</label>
+    <input type="text" id="capacity" name="Shelf.Capacity" />
+
+    <label for="warehouseId">Magazyn:</label>
+    <select id="warehouseId" name="Shelf.WarehouseId">
+        @foreach (var warehouse in Model.Warehouses)
+        {
+            <option value="@warehouse.Id">@warehouse.Id</option>
+        }
+    </select>
+
+    <button type="submit">Dodaj</button>
+</form>

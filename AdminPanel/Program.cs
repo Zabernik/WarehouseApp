@@ -1,9 +1,18 @@
+using Application.Interfaces;
+using Application;
 using Domain.Entities;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Domain.Interface;
+using Infrastructure.Repo;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddHttpClient("WebApiClient", client =>
+{
+    client.BaseAddress = new Uri("https://localhost:7027/");
+});
 
 builder.Services.AddRazorPages();
 
@@ -26,7 +35,18 @@ builder.Services.Configure<IdentityOptions>(options =>
 builder.Services.AddGrpc();
 builder.Services.AddScoped<ProductSearchClientService>();
 
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
+builder.Services.AddScoped<IShelfService, ShelfService>();
+builder.Services.AddScoped<IShelfRepository, ShelfRepository>();
+
+builder.Services.AddScoped<IWarehouseService, WarehouseService>();
+builder.Services.AddScoped<IWarehouseRepository, WarehouseRepository>();
+
 var app = builder.Build();
+
+
 
 if (!app.Environment.IsDevelopment())
 {

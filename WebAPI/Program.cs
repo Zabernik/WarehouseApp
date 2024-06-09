@@ -5,6 +5,10 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using WebAPI.Settings;
+using Application.Interfaces;
+using Application;
+using Domain.Interface;
+using Infrastructure.Repo;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,6 +44,17 @@ builder.Services.AddAuthorization(options =>
 });
 
 builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
+builder.Services.AddScoped<IShelfService, ShelfService>();
+builder.Services.AddScoped<IShelfRepository, ShelfRepository>();
+
+builder.Services.AddScoped<IWarehouseService, WarehouseService>();
+builder.Services.AddScoped<IWarehouseRepository, WarehouseRepository>();
+
+builder.Services.AddControllers();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Warehouse API", Version = "v1" });

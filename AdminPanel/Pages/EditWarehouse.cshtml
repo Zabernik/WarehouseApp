@@ -1,0 +1,27 @@
+﻿@page "{id:int}"
+@model AdminPanel.Pages.EditWarehouseModel
+
+<h2>Edytuj Magazyn</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Warehouse.Id" />
+
+    <label for="capacity">Pojemność:</label>
+    <input type="text" id="capacity" asp-for="Warehouse.Capacity" />
+
+    <label for="typeOfMicroclimate">Typ Mikroklimatu:</label>
+    <select id="typeOfMicroclimate" asp-for="Warehouse.TypeOfMicroclimate">
+        <option value="Normal">Normal</option>
+        <option value="Cold">Cold</option>
+        <option value="Freezer">Freezer</option>
+    </select>
+
+    <label for="typeOfProduct">Typ Produktu:</label>
+    <select id="typeOfProduct" asp-for="Warehouse.TypeOfProduct">
+        <option value="Food">Food</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Clothes">Clothes</option>
+    </select>
+
+    <button type="submit">Zapisz</button>
+</form>

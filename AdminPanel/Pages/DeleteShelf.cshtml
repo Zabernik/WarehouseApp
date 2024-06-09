@@ -1,0 +1,13 @@
+﻿@page "{id:int}"
+@model AdminPanel.Pages.DeleteShelfModel
+
+<h2>Usuń Regał</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Shelf.Id" />
+
+    <p>Czy na pewno chcesz usunąć regał o pojemności: <strong>@Model.Shelf.Capacity</strong>?</p>
+
+    <button type="submit">Usuń</button>
+    <a asp-page="Shelves">Anuluj</a>
+</form>

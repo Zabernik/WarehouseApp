@@ -1,0 +1,21 @@
+﻿@page "{id:int}"
+@model AdminPanel.Pages.EditShelfModel
+
+<h2>Edytuj Regał</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Shelf.Id" />
+
+    <label for="capacity">Pojemność:</label>
+    <input type="text" id="capacity" asp-for="Shelf.Capacity" />
+
+    <label for="warehouseId">Magazyn:</label>
+    <select id="warehouseId" asp-for="Shelf.WarehouseId">
+        @foreach (var warehouse in Model.Warehouses)
+        {
+            <option value="@warehouse.Id">@warehouse.Id</option>
+        }
+    </select>
+
+    <button type="submit">Zapisz</button>
+</form>

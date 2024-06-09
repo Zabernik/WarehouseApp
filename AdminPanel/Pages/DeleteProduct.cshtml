@@ -1,0 +1,13 @@
+﻿@page "{id:int}"
+@model AdminPanel.Pages.DeleteProductModel
+
+<h2>Usuń Produkt</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Product.Id" />
+
+    <p>Czy na pewno chcesz usunąć produkt: <strong>@Model.Product.Name</strong>?</p>
+
+    <button type="submit">Usuń</button>
+    <a asp-page="Products">Anuluj</a>
+</form>
