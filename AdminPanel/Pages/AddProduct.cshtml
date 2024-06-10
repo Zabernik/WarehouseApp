@@ -1,42 +1,62 @@
 ﻿@page
-@model AdminPanel.Pages.AddProductModel
+@model AddProductModel
+@{
+    ViewData["Title"] = "Dodaj Produkt";
+}
 
 <h2>Dodaj Produkt</h2>
 
 <form method="post">
-    <label for="name">Nazwa Produktu:</label>
-    <input type="text" id="name" name="Product.Name" />
+    <div class="form-group">
+        <label asp-for="Product.Name">Nazwa Produktu:</label>
+        <input asp-for="Product.Name" class="form-control" />
+        <span asp-validation-for="Product.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Product.Value">Wartość:</label>
+        <input asp-for="Product.Value" class="form-control" />
+        <span asp-validation-for="Product.Value" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Product.Weight">Waga:</label>
+        <input asp-for="Product.Weight" class="form-control" />
+        <span asp-validation-for="Product.Weight" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Product.ExpireDate">Data ważności:</label>
+        <input asp-for="Product.ExpireDate" class="form-control" />
+        <span asp-validation-for="Product.ExpireDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Product.TypeOfDetention">Typ Przetrzymywania:</label>
+        <select asp-for="Product.TypeOfDetention" class="form-control">
+            @foreach (var value in Enum.GetValues(typeof(Domain.Enums.TypesOfMicroclimate)))
+            {
+                <option value="@value.ToString()">@value</option>
+            }
+        </select>
+        <span asp-validation-for="Product.TypeOfDetention" class="text-danger"></span>
+    </div>
 
-    <label for="value">Wartość:</label>
-    <input type="text" id="value" name="Product.Value" />
-
-    <label for="weight">Waga:</label>
-    <input type="text" id="weight" name="Product.Weight" />
-
-    <label for="expireDate">Data ważności:</label>
-    <input type="date" id="expireDate" name="Product.ExpireDate" />
-
-    <label for="typeOfDetention">Typ Zatrzymania:</label>
-    <select id="typeOfDetention" name="Product.TypeOfDetention">
-        <option value="Normal">Normal</option>
-        <option value="Cold">Cold</option>
-        <option value="Freezer">Freezer</option>
-    </select>
-
-    <label for="typeOfProduct">Typ Produktu:</label>
-    <select id="typeOfProduct" name="Product.TypeOfProduct">
-        <option value="Food">Food</option>
-        <option value="Electronics">Electronics</option>
-        <option value="Clothes">Clothes</option>
-    </select>
-
-    <label for="shelfId">Regał:</label>
-    <select id="shelfId" name="Product.ShelfId">
-        @foreach (var shelf in Model.Shelves)
-        {
-            <option value="@shelf.Id">@shelf.Id</option>
-        }
-    </select>
-
-    <button type="submit">Dodaj</button>
+    <div class="form-group">
+        <label asp-for="Product.TypeOfProduct">Rodzaj Produktu:</label>
+        <select asp-for="Product.TypeOfProduct" class="form-control">
+            @foreach (var value in Enum.GetValues(typeof(Domain.Enums.TypesOfProduct)))
+            {
+                <option value="@value.ToString()">@value</option>
+            }
+        </select>
+        <span asp-validation-for="Product.TypeOfProduct" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Product.ShelfId">Regał:</label>
+        <select asp-for="Product.ShelfId" class="form-control">
+            @foreach (var shelf in Model.Shelves)
+            {
+                <option value="@shelf.Id">@shelf.Id</option>
+            }
+        </select>
+        <span asp-validation-for="Product.ShelfId" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Dodaj Produkt</button>
 </form>

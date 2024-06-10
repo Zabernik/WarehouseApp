@@ -1,0 +1,37 @@
+﻿@page
+@model ProductsModel
+
+<h2>Lista Produktów</h2>
+
+<a class="btn btn-primary mb-3" href="AddProduct">Nowy Produkt</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nazwa</th>
+            <th>Wartość</th>
+            <th>Waga</th>
+            <th>Data Ważności</th>
+            <th>Rodzaj Mikroklimatu</th>
+            <th>Rodzaj Produktu</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Value</td>
+                <td>@product.Weight</td>
+                <td>@product.ExpireDate.ToString("yyyy-MM-dd")</td>
+                <td>@product.TypeOfDetention</td>
+                <td>@product.TypeOfProduct</td>
+                <td>
+                    <a href="EditProduct?id=@product.Id" class="btn btn-sm btn-primary">Edytuj</a>
+                    <a href="DeleteProduct?id=@product.Id" class="btn btn-sm btn-danger">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

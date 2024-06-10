@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddHttpClient("WebApiClient", client =>
 {
-    client.BaseAddress = new Uri("https://localhost:7027/");
+    client.BaseAddress = new Uri("https://localhost:7184/");
 });
 
 builder.Services.AddRazorPages();

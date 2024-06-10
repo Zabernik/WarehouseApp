@@ -21,6 +21,13 @@ namespace Infrastructure.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<Product>()
+                .Property(p => p.ExpireDate)
+                .HasConversion(
+                    v => v.ToString("yyyy-MM-dd"),
+                    v => DateTime.Parse(v)
+                );
+
             modelBuilder.Entity<Warehouse>()
                 .HasMany(w => w.Shelves)
                 .WithOne(s => s.Warehouse);

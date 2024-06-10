@@ -1,44 +1,58 @@
-﻿@page "{id:int}"
+﻿@page
 @model AdminPanel.Pages.EditProductModel
 
-<h2>Edytuj Produkt</h2>
+<h2 class="text-center mb-4">Edytuj Produkt</h2>
 
-<form method="post">
+<form method="post" class="mx-auto" style="max-width: 400px;">
     <input type="hidden" asp-for="Product.Id" />
 
-    <label for="name">Nazwa Produktu:</label>
-    <input type="text" id="name" asp-for="Product.Name"/>
+    <div class="mb-3">
+        <label for="name" class="form-label">Nazwa Produktu:</label>
+        <input type="text" id="name" asp-for="Product.Name" class="form-control" />
+    </div>
 
-    <label for="value">Wartość:</label>
-    <input type="text" id="value" asp-for="Product.Value" />
+    <div class="mb-3">
+        <label for="value" class="form-label">Wartość:</label>
+        <input type="text" id="value" asp-for="Product.Value" class="form-control" />
+    </div>
 
-    <label for="weight">Waga:</label>
-    <input type="text" id="weight" asp-for="Product.Weight" />
+    <div class="mb-3">
+        <label for="weight" class="form-label">Waga:</label>
+        <input type="text" id="weight" asp-for="Product.Weight" class="form-control" />
+    </div>
 
-    <label for="expireDate">Data ważności:</label>
-    <input type="date" id="expireDate" asp-for="Product.ExpireDate" />
+    <div class="mb-3">
+        <label for="expireDate" class="form-label">Data ważności:</label>
+        <input type="date" id="expireDate" asp-for="Product.ExpireDate" class="form-control" />
+    </div>
 
-    <label for="typeOfDetention">Typ Zatrzymania:</label>
-    <select id="typeOfDetention" asp-for="Product.TypeOfDetention">
-        <option value="Normal">Normal</option>
-        <option value="Cold">Cold</option>
-        <option value="Freezer">Freezer</option>
-    </select>
+    <div class="mb-3">
+        <label for="typeOfDetention" class="form-label">Typ Zatrzymania:</label>
+        <select id="typeOfDetention" asp-for="Product.TypeOfDetention" class="form-select">
+            <option value="Normal">Normal</option>
+            <option value="Cold">Cold</option>
+            <option value="Freezer">Freezer</option>
+        </select>
+    </div>
 
-    <label for="typeOfProduct">Typ Produktu:</label>
-    <select id="typeOfProduct" asp-for="Product.TypeOfProduct">
-        <option value="Food">Food</option>
-        <option value="Electronics">Electronics</option>
-        <option value="Clothes">Clothes</option>
-    </select>
+    <div class="mb-3">
+        <label for="typeOfProduct" class="form-label">Typ Produktu:</label>
+        <select id="typeOfProduct" asp-for="Product.TypeOfProduct" class="form-select">
+            <option value="Food">Food</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Clothes">Clothes</option>
+        </select>
+    </div>
 
-    <label for="shelfId">Regał:</label>
-    <select id="shelfId" asp-for="Product.ShelfId">
-        @foreach (var shelf in Model.Shelves)
-        {
-            <option value="@shelf.Id">@shelf.Id</option>
-        }
-    </select>
+    <div class="mb-3">
+        <label for="shelfId" class="form-label">Regał:</label>
+        <select id="shelfId" asp-for="Product.ShelfId" class="form-select">
+            @foreach (var shelf in Model.Shelves)
+            {
+                <option value="@shelf.Id">@shelf.Id</option>
+            }
+        </select>
+    </div>
 
-    <button type="submit">Zapisz</button>
+    <button type="submit" class="btn btn-primary">Zapisz</button>
 </form>

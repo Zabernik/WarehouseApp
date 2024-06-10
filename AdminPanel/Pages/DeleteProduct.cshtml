@@ -1,13 +1,25 @@
-﻿@page "{id:int}"
+﻿@page
 @model AdminPanel.Pages.DeleteProductModel
 
-<h2>Usuń Produkt</h2>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Usuń Produkt</h2>
 
-<form method="post">
-    <input type="hidden" asp-for="Product.Id" />
+                    <form method="post">
+                        <input type="hidden" asp-for="Product.Id" />
 
-    <p>Czy na pewno chcesz usunąć produkt: <strong>@Model.Product.Name</strong>?</p>
+                        <p class="mb-4">Czy na pewno chcesz usunąć produkt: <strong>@Model.Product.Name</strong>?</p>
 
-    <button type="submit">Usuń</button>
-    <a asp-page="Products">Anuluj</a>
-</form>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-danger">Usuń</button>
+                            <a asp-page="Products" class="btn btn-secondary">Anuluj</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
