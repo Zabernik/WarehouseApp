@@ -12,7 +12,6 @@ using Infrastructure.Repo;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddRazorPages();
 
 var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>();
@@ -96,7 +95,6 @@ var app = builder.Build();
 
 app.MapGrpcService<ProductLocatorService>();
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
@@ -107,7 +105,7 @@ app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Warehouse API V1");
-    c.RoutePrefix = string.Empty; // To serve Swagger UI at application's root
+    c.RoutePrefix = string.Empty; 
 });
 
 app.UseHttpsRedirection();
@@ -117,6 +115,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
-app.MapControllers(); // Ensure controllers are mapped
+app.MapControllers();
 
 app.Run();

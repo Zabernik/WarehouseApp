@@ -68,7 +68,7 @@ app.UseEndpoints(endpoints =>
     //endpoints.MapGrpcService<ProductLocatorService>();
 });
 
-// Utworzenie ról i u¿ytkowników
+
 using (var scope = app.Services.CreateScope())
 {
     var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
